@@ -1,0 +1,27 @@
+# Maven
+/target
+auth-service/target
+log-service/target
+mail-service/target
+order-service/target
+*.log
+
+# IntelliJ
+.idea
+*.iml
+*.ipr
+*.iws
+out/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
