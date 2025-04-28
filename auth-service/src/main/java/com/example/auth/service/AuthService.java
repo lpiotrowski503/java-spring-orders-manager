@@ -58,7 +58,7 @@ public class AuthService {
 
         return UserResponse.builder()
                 .id(userRepo.getId())
-                .username(userRepo.getName())
+                .name(userRepo.getName())
                 .email(userRepo.getEmail())
                 .build();
     }

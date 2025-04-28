@@ -18,6 +18,10 @@ public class AuthController {
 
     private final AuthService authService;
 
+    @GetMapping("/me")
+    public ResponseEntity<UserResponse> getMe(Authentication authentication) {
+        return ResponseEntity.ok(authService.me(authentication));
+    }
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody @Valid RegisterRequest request) {
@@ -29,10 +33,4 @@ public class AuthController {
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
         return ResponseEntity.ok(authService.login(request));
     }
-
-    @GetMapping("/me")
-    public ResponseEntity<UserResponse> getMe(Authentication authentication) {
-        return ResponseEntity.ok(authService.me(authentication));
-    }
-
 }
