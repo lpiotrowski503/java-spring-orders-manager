@@ -60,7 +60,9 @@ class AuthControllerTest {
 
     @Test
     void shouldLoginSuccessfully() throws Exception {
-        LoginRequest request = new LoginRequest("user@example.com", "password");
+        LoginRequest request = new LoginRequest();
+        request.setEmail("user@example.com");
+        request.setPassword("password");
 
         String jwt = "mocked.jwt.token";
 

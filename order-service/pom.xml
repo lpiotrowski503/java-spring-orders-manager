@@ -12,6 +12,11 @@
 
   <artifactId>order-service</artifactId>
 
+  <properties>
+    <java.version>21</java.version>
+    <spring.boot.version>3.4.4</spring.boot.version>
+  </properties>
+
   <dependencies>
     <!-- REST API -->
     <dependency>
@@ -20,41 +25,47 @@
     </dependency>
 
     <!-- JPA & PostgreSQL -->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.boot</groupId>-->
-<!--      <artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
 <!--    <dependency>-->
 <!--      <groupId>org.postgresql</groupId>-->
 <!--      <artifactId>postgresql</artifactId>-->
 <!--    </dependency>-->
 
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
     <!-- Walidacja -->
-<!--    <dependency>-->
-<!--      <groupId>jakarta.validation</groupId>-->
-<!--      <artifactId>jakarta.validation-api</artifactId>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>jakarta.validation</groupId>
+      <artifactId>jakarta.validation-api</artifactId>
+    </dependency>
 
     <!-- Obsługa plików -->
-<!--    <dependency>-->
-<!--      <groupId>commons-io</groupId>-->
-<!--      <artifactId>commons-io</artifactId>-->
-<!--      <version>2.11.0</version>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.11.0</version>
+    </dependency>
 
     <!-- Lombok -->
-<!--    <dependency>-->
-<!--      <groupId>org.projectlombok</groupId>-->
-<!--      <artifactId>lombok</artifactId>-->
-<!--      <optional>true</optional>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
 
     <!-- Swagger -->
-<!--    <dependency>-->
-<!--      <groupId>org.springdoc</groupId>-->
-<!--      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
-<!--      <version>2.2.0</version>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>2.2.0</version>
+    </dependency>
 
     <!-- Testy -->
     <dependency>
@@ -62,5 +73,43 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+  <build>
+    <plugins>
+      <!-- kompilator Java -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <source>21</source>
+          <target>21</target>
+          <release>${java.version}</release>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>1.18.30</version>
+            </path>
+          </annotationProcessorPaths>
+          <compilerArgs>
+            <arg>-parameters</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+
+      <!-- Spring Boot -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring.boot.version}</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>

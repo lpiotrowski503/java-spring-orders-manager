@@ -21,3 +21,21 @@
     ├── exception          <-- Własne wyjątki i handler
     └── util               <-- Pomocnicze klasy (np. token utils, email utils)
 ```
+
+## 🔧 Struktura pakietów w order-service
+
+```lua
+    orders-manager/
+    ├── auth-service/
+    ├── order-service/
+    │   ├── src/main/java/com/example/order/
+    │   │   ├── controller/
+    │   │   ├── service/
+    │   │   ├── repository/
+    │   │   ├── entity/
+    │   │   ├── dto/
+    │   │   └── OrderServiceApplication.java
+    │   └── src/main/resources/
+    │       └── application.properties
+
+```

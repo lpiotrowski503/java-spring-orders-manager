@@ -1,4 +1,4 @@
-package com.example.auth.config;
+package com.example.order.config;
 
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -6,14 +6,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class OpenApiConfig {
+public class SwaggerConfig {
 
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Auth Service API")
+                        .title("Order Service API")
                         .version("1.0")
-                        .description("API dokumentacja dla auth-service"));
+                        .description("Dokumentacja API dla zarządzania zamówieniami"));
     }
 }

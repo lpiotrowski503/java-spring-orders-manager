@@ -39,10 +39,10 @@ public class AuthService {
 
     public LoginResponse login(LoginRequest request) {
         authManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.email(), request.password())
+                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
 
-        UserDetails user = userRepository.findByEmail(request.email()).orElseThrow();
+        UserDetails user = userRepository.findByEmail(request.getEmail()).orElseThrow();
         String token = jwtService.generateToken(user.getUsername());
 
         System.out.println("User: " + user.getUsername());
